@@ -1,0 +1,11 @@
+:root {
+  --bg-color: #333;
+  --text-color: #f7f7f7;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+/* Add more styles for dark mode here */

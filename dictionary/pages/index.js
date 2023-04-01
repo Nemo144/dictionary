@@ -1,13 +1,14 @@
-import React from "react";
-import Navbar from "@/components/Navbar";
+import React, { useState } from "react";
+import Navbar from "../components/Navbar";
 import Dictionary from "@/components/Dictionary";
+import Layout from "../components/Layout";
 
 const Home = () => {
   return (
-    <div>
+    <Layout>
       <Navbar />
       {/* <Dictionary /> */}
-    </div>
+    </Layout>
   );
 };
 
