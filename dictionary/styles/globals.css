@@ -85,15 +85,19 @@ body {
   overflow-x: hidden;
 }
 
-/* body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-} */
+body[data-theme="light"] {
+  --color-text-primary: #27201a;
+  --color-text-secondary: #076963;
+  --color-bg-primary: #fff;
+  --color-bg-toggle: #1e90ff;
+}
+
+body[data-theme="dark"] {
+  --color-text-primary: #e3e3e3;
+  --color-text-secondary: #ff6b00;
+  --color-bg-primary: #15232d;
+  --color-bg-toggle: #a9a9a9;
+}
 
 a {
   color: inherit;
