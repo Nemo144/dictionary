@@ -7,7 +7,7 @@ const fonts = [
   { name: "Monospace", fontFamily: "Roboto Mono, Monospace" },
 ];
 
-const Navbar = ({ handleMode, mode, setMode }) => {
+const Navbar = () => {
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
 
   //function to handle the font change upon selection
@@ -35,7 +35,12 @@ const Navbar = ({ handleMode, mode, setMode }) => {
       </div>
 
       <div>
-        <button onClick={handleMode}></button>
+        <form action="#">
+          <label className="switch">
+            <input type="checkbox" />
+            <span className="slider"></span>
+          </label>
+        </form>
       </div>
     </div>
   );
