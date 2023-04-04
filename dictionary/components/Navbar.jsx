@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BiBookAlt } from "react-icons/bi";
 
 const fonts = [
@@ -9,6 +9,11 @@ const fonts = [
 
 const Navbar = () => {
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
+  const [theme, setTheme] = useState(undefined);
+
+  const handleToggle = (event) => {
+    setTheme(event.target.checked);
+  };
 
   //function to handle the font change upon selection
   const handleFontChange = (event) => {
@@ -19,7 +24,7 @@ const Navbar = () => {
   };
 
   return (
-    <div>
+    <div className="container">
       <div>
         <BiBookAlt />
       </div>
@@ -37,7 +42,7 @@ const Navbar = () => {
       <div>
         <form action="#">
           <label className="switch">
-            <input type="checkbox" />
+            <input type="checkbox" checked={theme} onChange={handleToggle} />
             <span className="slider"></span>
           </label>
         </form>
