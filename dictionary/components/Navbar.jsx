@@ -8,12 +8,38 @@ const fonts = [
 ];
 
 const Navbar = () => {
+  //to manage the change in state of the fonts
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
-  const [theme, setTheme] = useState(undefined);
 
+  //to manage the change in state of the themes
+  const [darkTheme, setDarkTheme] = useState(undefined);
+
+  //function to handle the toggle between light and dark themes
   const handleToggle = (event) => {
-    setTheme(event.target.checked);
+    setDarkTheme(event.target.checked);
   };
+
+  //the effect hook to handle the (re)rendering of the the themes
+  useEffect(() => {
+    if (darkTheme !== undefined) {
+      if (darkTheme) {
+        document.documentElement.setAttribute("data-theme", "dark");
+        window.localStorage.setItem("theme", "dark");
+      } else {
+        document.documentElement.removeAttribute("data-theme");
+        window.localStorage.setItem("theme", "light");
+      }
+    }
+  }, [darkTheme]);
+
+  //another effect hook to handle the initial-color-mode
+  useEffect(() => {
+    const root = window.document.documentElement;
+    const initialColorValue = root.style.getPropertyValue(
+      "--initial-color-mode"
+    );
+    setDarkTheme(initialColorValue === "dark");
+  }, []);
 
   //function to handle the font change upon selection
   const handleFontChange = (event) => {
@@ -42,7 +68,11 @@ const Navbar = () => {
       <div>
         <form action="#">
           <label className="switch">
-            <input type="checkbox" checked={theme} onChange={handleToggle} />
+            <input
+              type="checkbox"
+              checked={darkTheme}
+              onChange={handleToggle}
+            />
             <span className="slider"></span>
           </label>
         </form>
