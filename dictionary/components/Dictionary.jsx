@@ -51,31 +51,35 @@ const Dictionary = () => {
 
   return (
     <div className="container">
-      <div>
-        <BiBookAlt />
-      </div>
+      <div className="navbar">
+        <div>
+          <BiBookAlt />
+        </div>
 
-      <div>
-        <select value={selectedFont.name} onChange={handleFontChange}>
-          {fonts.map((font) => (
-            <option key={font.name} value={font.name}>
-              {font.name}
-            </option>
-          ))}
-        </select>
-      </div>
+        <div className="toggle">
+          <div>
+            <select value={selectedFont.name} onChange={handleFontChange}>
+              {fonts.map((font) => (
+                <option key={font.name} value={font.name}>
+                  {font.name}
+                </option>
+              ))}
+            </select>
+          </div>
 
-      <div>
-        <form action="#">
-          <label className="switch">
-            <input
-              type="checkbox"
-              checked={darkTheme}
-              onChange={handleToggle}
-            />
-            <span className="slider"></span>
-          </label>
-        </form>
+          <div>
+            <form action="#">
+              <label className="switch">
+                <input
+                  type="checkbox"
+                  checked={darkTheme}
+                  onChange={handleToggle}
+                />
+                <span className="slider"></span>
+              </label>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   );
