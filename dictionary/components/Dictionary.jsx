@@ -7,7 +7,7 @@ const fonts = [
   { name: "Monospace", fontFamily: "Roboto Mono, Monospace" },
 ];
 
-const Navbar = () => {
+const Dictionary = () => {
   //to manage the change in state of the fonts
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
 
@@ -81,4 +81,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Dictionary;
