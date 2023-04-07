@@ -67,7 +67,7 @@ const Dictionary = () => {
             </select>
           </div>
 
-          <div>
+          <div className="nav-switch">
             <form action="#">
               <label className="switch">
                 <input
