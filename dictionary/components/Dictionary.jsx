@@ -14,6 +14,11 @@ const Dictionary = () => {
   //to manage the change in state of the themes
   const [darkTheme, setDarkTheme] = useState(undefined);
 
+  //to manage the state of the input the text
+  const [text, setText] = useState({
+    firstText: "",
+  });
+
   //function to handle the toggle between light and dark themes
   const handleToggle = (event) => {
     setDarkTheme(event.target.checked);
@@ -78,6 +83,10 @@ const Dictionary = () => {
                 <span className="slider"></span>
               </label>
             </form>
+          </div>
+
+          <div>
+            <input type="text" />
           </div>
         </div>
       </div>
