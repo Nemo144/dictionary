@@ -104,3 +104,8 @@ input:checked + .slider:before {
 .nav-switch {
   margin-left: 2rem;
 }
+
+.dictionary-input {
+  display: flex;
+  flex-direction: column;
+}

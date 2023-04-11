@@ -85,7 +85,7 @@ const Dictionary = () => {
             </form>
           </div>
 
-          <div>
+          <div className="dictionary-input">
             <input type="text" />
           </div>
         </div>
