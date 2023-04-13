@@ -108,4 +108,7 @@ input:checked + .slider:before {
 .dictionary-input {
   display: flex;
   flex-direction: column;
+  margin-top: 2rem;
+  /* border: 1px solid black; */
+  /* border-radius: 15px 50px 30px 5px; */
 }
