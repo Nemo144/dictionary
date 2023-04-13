@@ -88,7 +88,7 @@ const Dictionary = () => {
       </div>
 
       <div className="dictionary-input">
-        <input type="text" name="firstText" value="" />
+        <input className="input" type="text" name="firstText" value="" />
       </div>
     </div>
   );
