@@ -88,7 +88,13 @@ const Dictionary = () => {
       </div>
 
       <div className="dictionary-input">
-        <input className="input" type="text" name="firstText" value="" />
+        <input
+          className="input"
+          type="text"
+          name="firstText"
+          value=""
+          placeholder="Search"
+        />
       </div>
     </div>
   );
