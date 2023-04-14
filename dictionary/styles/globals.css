@@ -113,4 +113,5 @@ input:checked + .slider:before {
 
 .input {
   border: 1px solid black;
+  height: 2rem;
 }
