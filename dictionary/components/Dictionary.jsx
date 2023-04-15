@@ -55,9 +55,11 @@ const Dictionary = () => {
   };
 
   //function to handle the change in input text
-  const handleTextChange = () => {
+  const handleTextChange = (event) => {
     //using the previous state to determine new state
-    setText((prevText) => prevText);
+    setText(
+      (prevText) => (prevText, ([event.target.name] = event.target.value))
+    );
   };
 
   return (
@@ -98,7 +100,7 @@ const Dictionary = () => {
           className="input"
           type="text"
           name="firstText"
-          value=""
+          value={text.firstText}
           placeholder="Search"
         />
       </div>
