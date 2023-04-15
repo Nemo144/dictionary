@@ -54,6 +54,12 @@ const Dictionary = () => {
     document.body.style.fontFamily = font.fontFamily;
   };
 
+  //function to handle the change in input text
+  const handleTextChange = () => {
+    //using the previous state to determine new state
+    setText((prevText) => prevText);
+  };
+
   return (
     <div className="container">
       <div className="navbar">
