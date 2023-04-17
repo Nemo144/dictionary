@@ -17,6 +17,7 @@ const Dictionary = () => {
   //to manage the state of the input the text
   const [text, setText] = useState({
     firstText: "",
+    secondText: "",
   });
 
   //function to handle the toggle between light and dark themes
@@ -101,6 +102,7 @@ const Dictionary = () => {
           type="text"
           name="firstText"
           value={text.firstText}
+          onChange={handleTextChange}
           placeholder="Search"
         />
       </div>
