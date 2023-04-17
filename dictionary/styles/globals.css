@@ -114,4 +114,7 @@ input:checked + .slider:before {
 .input {
   border: 1px solid black;
   height: 2rem;
+  outline: none;
+  background-color: rgb(238, 245, 245);
+  border-color: transparent;
 }
