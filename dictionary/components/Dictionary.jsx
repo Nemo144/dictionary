@@ -7,7 +7,8 @@ const fonts = [
   { name: "Monospace", fontFamily: "Roboto Mono, Monospace" },
 ];
 
-const Dictionary = () => {
+const Dictionary = ({ data }) => {
+  console.log(data);
   //to manage the change in state of the fonts
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
 
@@ -17,7 +18,6 @@ const Dictionary = () => {
   //to manage the state of the input the text
   const [text, setText] = useState({
     firstText: "",
-    secondText: "",
   });
 
   //function to handle the toggle between light and dark themes
@@ -86,7 +86,7 @@ const Dictionary = () => {
               <label className="switch">
                 <input
                   type="checkbox"
-                  checked={darkTheme}
+                  checked={!!darkTheme}
                   onChange={handleToggle}
                 />
                 <span className="slider"></span>
