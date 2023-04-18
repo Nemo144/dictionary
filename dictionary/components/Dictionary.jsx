@@ -7,6 +7,27 @@ const fonts = [
   { name: "Monospace", fontFamily: "Roboto Mono, Monospace" },
 ];
 
+const baseUrl = "https://lexicala1.p.rapidapi.com/search";
+
+export const getServerSideProps = async () => {
+  // to fetch data from the external dictionary API
+  const res = await fetch(baseUrl, {
+    method: "GET",
+    headers: {
+      "X-RapidAPI-Key": "baa38db7a9msh64dd74fda66bb72p14a910jsn16c29cf81576",
+      "X-RapidAPI-Host": "lexicala1.p.rapidapi.com",
+    },
+  });
+
+  const data = await res.json();
+
+  return {
+    props: {
+      data,
+    },
+  };
+};
+
 const Dictionary = ({ data }) => {
   console.log(data);
   //to manage the change in state of the fonts
@@ -46,6 +67,18 @@ const Dictionary = ({ data }) => {
     );
     setDarkTheme(initialColorValue === "dark");
   }, []);
+
+  // useEffect(() => {
+  //   fetch("https://lexicala1.p.rapidapi.com/search", {
+  //     method: "GET",
+  //     headers: {
+  //       "X-RapidAPI-Key": "baa38db7a9msh64dd74fda66bb72p14a910jsn16c29cf81576",
+  //       "X-RapidAPI-Host": "lexicala1.p.rapidapi.com",
+  //     },
+  //   })
+  //     .then((res) => res.json())
+  //     .then((data) => console.log(data));
+  // });
 
   //function to handle the font change upon selection
   const handleFontChange = (event) => {
