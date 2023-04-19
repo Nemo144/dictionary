@@ -49,17 +49,16 @@ const Dictionary = ({ data }) => {
     setDarkTheme(initialColorValue === "dark");
   }, []);
 
-  // useEffect(() => {
-  //   fetch("https://lexicala1.p.rapidapi.com/search", {
-  //     method: "GET",
-  //     headers: {
-  //       "X-RapidAPI-Key": "baa38db7a9msh64dd74fda66bb72p14a910jsn16c29cf81576",
-  //       "X-RapidAPI-Host": "lexicala1.p.rapidapi.com",
-  //     },
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data));
-  // });
+  useEffect(() => {
+    fetch(baseUrl, {
+      method: "GET",
+      headers: {
+        "API-Key": process.env.API_KEY,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
+  });
 
   //function to handle the font change upon selection
   const handleFontChange = (event) => {
@@ -124,22 +123,22 @@ const Dictionary = ({ data }) => {
   );
 };
 
-export const getStaticProps = async () => {
-  // to fetch data from the external dictionary API
-  const res = await fetch(baseUrl, {
-    method: "GET",
-    headers: {
-      "API-Key": process.env.API_KEY,
-    },
-  });
+// export const getStaticProps = async () => {
+//   // to fetch data from the external dictionary API
+//   const res = await fetch(baseUrl, {
+//     method: "GET",
+//     headers: {
+//       "API-Key": process.env.API_KEY,
+//     },
+//   });
 
-  const data = await res.json();
+//   const data = await res.json();
 
-  return {
-    props: {
-      data,
-    },
-  };
-};
+//   return {
+//     props: {
+//       data,
+//     },
+//   };
+// };
 
 export default Dictionary;
