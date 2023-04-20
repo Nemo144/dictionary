@@ -7,10 +7,10 @@ const fonts = [
   { name: "Monospace", fontFamily: "Roboto Mono, Monospace" },
 ];
 
-const baseUrl = `https://dictionaryapi.com/api/v3/references/collegiate/json/test?key=${process.env.API_KEY}`;
+const baseUrl = "";
 
 const Dictionary = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   //to manage the change in state of the fonts
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
 
@@ -50,10 +50,12 @@ const Dictionary = ({ data }) => {
   }, []);
 
   useEffect(() => {
-    fetch(baseUrl, {
+    fetch("", {
+      // mode: "no-cors",
       method: "GET",
       headers: {
-        "API-Key": process.env.API_KEY,
+        // "Access-Control-Allow-Origin": "*",
+        "API-Key": "",
       },
     })
       .then((res) => res.json())
@@ -125,12 +127,15 @@ const Dictionary = ({ data }) => {
 
 // export const getStaticProps = async () => {
 //   // to fetch data from the external dictionary API
-//   const res = await fetch(baseUrl, {
-//     method: "GET",
-//     headers: {
-//       "API-Key": process.env.API_KEY,
-//     },
-//   });
+//   const res = await fetch(
+//     "",
+//     {
+//       method: "GET",
+//       headers: {
+//         "API-Key": process.env.API_KEY,
+//       },
+//     }
+//   );
 
 //   const data = await res.json();
 
