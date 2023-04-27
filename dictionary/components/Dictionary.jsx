@@ -8,6 +8,7 @@ const fonts = [
 ];
 
 const baseUrl = "";
+const apiKey = process.env.X_API_KEY;
 
 const Dictionary = () => {
   //to manage the change in state of the fonts
@@ -20,6 +21,9 @@ const Dictionary = () => {
   const [text, setText] = useState({
     firstText: "",
   });
+
+  //state for the word queried from the API
+  const [word, setWord] = useState("code");
 
   //function to handle the toggle between light and dark themes
   const handleToggle = (event) => {
@@ -49,15 +53,17 @@ const Dictionary = () => {
   }, []);
 
   useEffect(() => {
-    fetch("", {
+    fetch(`https://api.api-ninjas.com/v1/dictionary?word=${word}`, {
       method: "GET",
       headers: {
-        "API-Key": "",
+        "X-Api-Key": process.env.X_API_KEY,
       },
+      contentType: "application/json",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data));
-  });
+      .then((data) => console.log(data))
+      .catch((error) => console.error(error));
+  }, [word]);
 
   //function to handle the font change upon selection
   const handleFontChange = (event) => {
@@ -122,15 +128,16 @@ const Dictionary = () => {
   );
 };
 
-// export const getStaticProps = async () => {
+// export const getServerSideProps = async () => {
 //   // to fetch data from the external dictionary API
 //   const res = await fetch(
-//     "",
+//     `https://api.api-ninjas.com/v1/dictionary?word=${word}`,
 //     {
 //       method: "GET",
 //       headers: {
-//         "API-Key": process.env.API_KEY,
+//         "X-Api-Key": "Wktrjn2RFl4QHiIzAKHE3Q==cYgYKOxELBRP0dVX",
 //       },
+//       contentType: "application/json",
 //     }
 //   );
 
