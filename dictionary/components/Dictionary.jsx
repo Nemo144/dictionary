@@ -56,7 +56,7 @@ const Dictionary = () => {
     fetch(`https://api.api-ninjas.com/v1/dictionary?word=${word}`, {
       method: "GET",
       headers: {
-        "X-Api-Key": process.env.X_API_KEY,
+        "X-Api-Key": apiKey,
       },
       contentType: "application/json",
     })
@@ -135,7 +135,7 @@ const Dictionary = () => {
 //     {
 //       method: "GET",
 //       headers: {
-//         "X-Api-Key": "Wktrjn2RFl4QHiIzAKHE3Q==cYgYKOxELBRP0dVX",
+//         "X-Api-Key": "",
 //       },
 //       contentType: "application/json",
 //     }
