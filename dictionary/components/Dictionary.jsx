@@ -51,10 +51,8 @@ const Dictionary = ({ data }) => {
 
   useEffect(() => {
     fetch("", {
-      // mode: "no-cors",
       method: "GET",
       headers: {
-        // "Access-Control-Allow-Origin": "*",
         "API-Key": "",
       },
     })
