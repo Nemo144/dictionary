@@ -9,8 +9,7 @@ const fonts = [
 
 const baseUrl = "";
 
-const Dictionary = ({ data }) => {
-  // console.log(data);
+const Dictionary = () => {
   //to manage the change in state of the fonts
   const [selectedFont, setSelectedFont] = useState(fonts[0]);
 
