@@ -52,6 +52,7 @@ const Dictionary = () => {
     setDarkTheme(initialColorValue === "dark");
   }, []);
 
+  //effect hook to fetch our data from the external API
   useEffect(() => {
     fetch(`https://api.api-ninjas.com/v1/dictionary?word=${word}`, {
       method: "GET",
