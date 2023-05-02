@@ -129,26 +129,4 @@ const Dictionary = () => {
   );
 };
 
-// export const getServerSideProps = async () => {
-//   // to fetch data from the external dictionary API
-//   const res = await fetch(
-//     `https://api.api-ninjas.com/v1/dictionary?word=${word}`,
-//     {
-//       method: "GET",
-//       headers: {
-//         "X-Api-Key": "",
-//       },
-//       contentType: "application/json",
-//     }
-//   );
-
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// };
-
 export default Dictionary;
