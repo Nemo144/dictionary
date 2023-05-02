@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BiBookAlt } from "react-icons/bi";
+import { GrFormSearch } from "react-icons/gr";
 
 const fonts = [
   { name: "Serif", fontFamily: "PT Serif, sans-serif" },
@@ -23,7 +24,7 @@ const Dictionary = () => {
   });
 
   //state for the word queried from the API
-  const [word, setWord] = useState("code");
+  const [word, setWord] = useState("dive");
 
   //function to handle the toggle between light and dark themes
   const handleToggle = (event) => {
@@ -62,7 +63,7 @@ const Dictionary = () => {
       contentType: "application/json",
     })
       .then((res) => res.json())
-      .then((data) => console.log(data))
+      .then((data) => setWord(data))
       .catch((error) => console.error(error));
   }, [word]);
 
@@ -124,6 +125,8 @@ const Dictionary = () => {
           onChange={handleTextChange}
           placeholder="Search"
         />
+
+        <GrFormSearch className="search-icon" />
       </div>
     </div>
   );

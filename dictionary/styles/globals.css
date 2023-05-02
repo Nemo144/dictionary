@@ -107,14 +107,22 @@ input:checked + .slider:before {
 
 .dictionary-input {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   margin-top: 2rem;
 }
 
 .input {
   border: 1px solid black;
   height: 2rem;
+  width: 65rem;
   outline: none;
   background-color: rgb(238, 245, 245);
   border-color: transparent;
+}
+
+.search-icon {
+  position: absolute;
+  margin-left: 48rem;
 }
