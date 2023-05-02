@@ -18,13 +18,10 @@ const Dictionary = () => {
   //to manage the change in state of the themes
   const [darkTheme, setDarkTheme] = useState(undefined);
 
-  //to manage the state of the input the text
-  const [text, setText] = useState({
-    firstText: "",
-  });
-
   //state for the word queried from the API
-  const [word, setWord] = useState("dive");
+  const [word, setWord] = useState("");
+  const [definitions, setDefinitions] = useState("");
+  const [valid, setValid] = useState(false);
 
   //function to handle the toggle between light and dark themes
   const handleToggle = (event) => {
@@ -55,16 +52,22 @@ const Dictionary = () => {
 
   //effect hook to fetch our data from the external API
   useEffect(() => {
-    fetch(`https://api.api-ninjas.com/v1/dictionary?word=${word}`, {
-      method: "GET",
-      headers: {
-        "X-Api-Key": apiKey,
-      },
-      contentType: "application/json",
-    })
-      .then((res) => res.json())
-      .then((data) => setWord(data))
-      .catch((error) => console.error(error));
+    async function fetchDefinition() {
+      const response = await fetch(
+        `https://api.api-ninjas.com/v1/dictionary?word=${word}`,
+        {
+          method: "GET",
+          headers: {
+            "X-Api-Key": apiKey,
+          },
+          contentType: "application/json",
+        }
+      );
+      const data = await response.json();
+      setDefinitions(data.definition?.split(/\d+\.\s+/).filter(Boolean));
+      setValid(data.valid);
+    }
+    fetchDefinition();
   }, [word]);
 
   //function to handle the font change upon selection
@@ -75,12 +78,9 @@ const Dictionary = () => {
     document.body.style.fontFamily = font.fontFamily;
   };
 
-  //function to handle the change in input text
-  const handleTextChange = (event) => {
-    //using the previous state to determine new state
-    setText(
-      (prevText) => (prevText, ([event.target.name] = event.target.value))
-    );
+  //function to handle word change
+  const handleWordChange = (event) => {
+    setWord(event.target.value);
   };
 
   return (
@@ -122,13 +122,24 @@ const Dictionary = () => {
         <input
           className="input"
           type="text"
-          name="firstText"
-          value={text.firstText}
-          onChange={handleTextChange}
+          value={word}
           placeholder="Search"
+          onChange={handleWordChange}
         />
-
         <GrFormSearch className="search-icon" />
+      </div>
+
+      <div>
+        {valid && (
+          <div>
+            <h2>{word}</h2>
+            <ol>
+              {definitions.map((definition, index) => (
+                <li key={index}>{definition}</li>
+              ))}
+            </ol>
+          </div>
+        )}
       </div>
     </div>
   );
