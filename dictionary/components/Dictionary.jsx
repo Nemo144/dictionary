@@ -20,13 +20,12 @@ const Dictionary = () => {
 
   //state for the word queried from the API
   const [word, setWord] = useState("");
-  const [definitions, setDefinitions] = useState("");
-  const [valid, setValid] = useState(false);
 
-  //function to handle the toggle between light and dark themes
-  const handleToggle = (event) => {
-    setDarkTheme(event.target.checked);
-  };
+  //state for the definitions fetched from the API
+  const [definitions, setDefinitions] = useState("");
+
+  //state to check for the existence of a word from the API
+  const [valid, setValid] = useState(false);
 
   //the effect hook to handle the (re)rendering of the the themes
   useEffect(() => {
@@ -76,6 +75,11 @@ const Dictionary = () => {
     const font = fonts.find((f) => f.name === fontName);
     setSelectedFont(font);
     document.body.style.fontFamily = font.fontFamily;
+  };
+
+  //function to handle the toggle between light and dark themes
+  const handleToggle = (event) => {
+    setDarkTheme(event.target.checked);
   };
 
   //function to handle word change
