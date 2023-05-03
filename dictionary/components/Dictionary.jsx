@@ -118,7 +118,7 @@ const Dictionary = () => {
             </form>
           </div>
 
-          <div className="slider-icons">{darkTheme ? "🌛" : "💡"}</div>
+          <div className="slider-icons">{darkTheme ? "🌛" : "🌞"}</div>
         </div>
       </div>
 
