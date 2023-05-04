@@ -96,7 +96,11 @@ const Dictionary = () => {
 
         <div className="toggle">
           <div>
-            <select value={selectedFont.name} onChange={handleFontChange}>
+            <select
+              className="font"
+              value={selectedFont.name}
+              onChange={handleFontChange}
+            >
               {fonts.map((font) => (
                 <option key={font.name} value={font.name}>
                   {font.name}
