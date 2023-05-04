@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BiBookAlt } from "react-icons/bi";
 import { GrFormSearch } from "react-icons/gr";
+import { useDebounce } from "use-debounce";
 
 const fonts = [
   { name: "Serif", fontFamily: "PT Serif, sans-serif" },
@@ -26,6 +27,16 @@ const Dictionary = () => {
 
   //state to check for the existence of a word from the API
   const [valid, setValid] = useState(false);
+
+  //state to control the fast changes when searching for a word from the API
+  const [debouncedValue] = useDebounce(word, 500);
+
+  //the effect hook to handle the debounceValue render of the searched word
+  useEffect(() => {
+    if (debouncedValue) {
+      setWord(debouncedValue);
+    }
+  }, [debouncedValue]);
 
   //the effect hook to handle the (re)rendering of the the themes
   useEffect(() => {
