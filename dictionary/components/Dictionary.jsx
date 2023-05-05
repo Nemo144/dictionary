@@ -9,7 +9,6 @@ const fonts = [
   { name: "Monospace", fontFamily: "Roboto Mono, Monospace" },
 ];
 
-const baseUrl = "";
 const apiKey = process.env.X_API_KEY;
 
 const Dictionary = () => {
