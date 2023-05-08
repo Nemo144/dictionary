@@ -27,6 +27,9 @@ const Dictionary = () => {
   //state to check for the existence of a word from the API
   const [valid, setValid] = useState(false);
 
+  //state to manage the audio of the words
+  const [audio, setAudio] = useState(null);
+
   //state to control the fast changes when searching for a word from the API
   const [debouncedValue] = useDebounce(word, 500);
 
@@ -97,6 +100,12 @@ const Dictionary = () => {
     setWord(event.target.value);
   };
 
+  //function to handle audio player
+  const handleAudioChange = () => {
+    const speech = new SpeechSynthesisUtterance(word);
+    window.speechSynthesis.speak(speech);
+  };
+
   return (
     <div className="container">
       <div className="navbar">
@@ -150,7 +159,18 @@ const Dictionary = () => {
       <div>
         {valid && (
           <div>
-            <h2>{word}</h2>
+            <h2>
+              {word} {""}
+              <button onClick={handleAudioChange}>
+                <span
+                  style={{ cursor: "pointer" }}
+                  role="img"
+                  aria-label="speaker"
+                >
+                  🔊
+                </span>
+              </button>
+            </h2>
             <ol>
               {definitions.map((definition, index) => (
                 <li className="definitions" key={index}>
