@@ -153,7 +153,9 @@ const Dictionary = () => {
             <h2>{word}</h2>
             <ol>
               {definitions.map((definition, index) => (
-                <li key={index}>{definition}</li>
+                <li className="definitions" key={index}>
+                  {definition}
+                </li>
               ))}
             </ol>
           </div>

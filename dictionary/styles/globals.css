@@ -23,7 +23,7 @@ body {
   background-color: var(--color-background);
   color: var(--color-primary);
   font-size: 16px;
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
 }
 
 .container {
@@ -143,4 +143,8 @@ input:checked + .slider:before {
 .search-icon {
   position: absolute;
   margin-left: 48rem;
+}
+
+.definitions {
+  padding: 1rem;
 }
