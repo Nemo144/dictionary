@@ -27,9 +27,6 @@ const Dictionary = () => {
   //state to check for the existence of a word from the API
   const [valid, setValid] = useState(false);
 
-  //state to manage the audio of the words
-  const [audio, setAudio] = useState(null);
-
   //state to control the fast changes when searching for a word from the API
   const [debouncedValue] = useDebounce(word, 500);
 
