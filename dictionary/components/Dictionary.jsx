@@ -97,7 +97,7 @@ const Dictionary = () => {
     setWord(event.target.value);
   };
 
-  //function to handle audio player
+  //function to handle audio player using the web text-to-speech API
   const handleAudioChange = () => {
     const speech = new SpeechSynthesisUtterance(word);
     window.speechSynthesis.speak(speech);
