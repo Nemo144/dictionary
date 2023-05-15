@@ -37,7 +37,7 @@ const Dictionary = () => {
     }
   }, [debouncedValue]);
 
-  //the effect hook to handle the (re)rendering of the the themes
+  //the effect hook to handle the (re)rendering of the themes
   useEffect(() => {
     if (darkTheme !== undefined) {
       if (darkTheme) {
