@@ -27,7 +27,7 @@ const Dictionary = () => {
   //state to check for the existence of a word from the API
   const [valid, setValid] = useState(false);
 
-  //state to control the fast changes when searching for a word from the API
+  //state to control the fast changes when searching for a word
   const [debouncedValue] = useDebounce(word, 500);
 
   //the effect hook to handle the debounceValue render of the searched word
