@@ -21,7 +21,7 @@ const Dictionary = () => {
   //to manage the state for the word queried from the API
   const [word, setWord] = useState("");
 
-  //state for the definitions fetched from the API
+  //to manage the state for the definitions fetched from the API
   const [definitions, setDefinitions] = useState("");
 
   //state to check for the existence of a word from the API
